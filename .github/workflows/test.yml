@@ -1,0 +1,16 @@
+name: Email Step Action
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 23f1002293@ds.study.iitm.ac.in
+        run: echo "Hello, world from Janani's IITM Data Science workflow!"
