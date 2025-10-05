@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -17,7 +18,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      # 🧠 Cache dependencies
+      # Restore cache first
       - name: prime-cache-59561bd
         id: cache
         uses: actions/cache@v4
@@ -27,11 +28,19 @@ jobs:
           restore-keys: |
             cache-
 
-      # 🧩 Install dependencies (or simulate)
+      # Install some dependencies (creates pip cache content)
       - name: Install dependencies
         run: |
           pip install fastapi numpy --upgrade
 
-      # 🧾 Echo cache hit/miss result
+      # Save cache manually if not hit
+      - name: Save cache on miss
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ~/.cache/pip
+          key: cache-59561bd
+
+      # Check whether the cache was hit or missed
       - name: Check cache result
         run: echo "Cache hit: ${{ steps.cache.outputs.cache-hit }}"
