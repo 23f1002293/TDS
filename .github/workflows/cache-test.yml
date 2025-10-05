@@ -43,4 +43,4 @@ jobs:
 
       # Check whether the cache was hit or missed
       - name: Check cache result
-        run: echo "Cache hit: ${{ steps.cache.outputs.cache-hit }}"
+        run: echo "Cache hit"
