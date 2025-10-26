@@ -1,10 +1,11 @@
-name: Cache Speed Test
+name: Cache Speed Test 
 
 on:
   push:
     branches: [ main ]
   workflow_dispatch:
-
+  schedule:
+        - cron: '22 8 * * *' # Every day at midnight UTC
 jobs:
   build:
     runs-on: ubuntu-latest
