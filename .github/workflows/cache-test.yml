@@ -2,7 +2,7 @@ name: Daily Commit
 on:
   workflow_dispatch:
   schedule:
-        - cron: '22 8 * * *' # Every day at midnight UTC
+    - cron: '22 8 * * *'
 
 jobs:
   daily-commit:
@@ -10,10 +10,10 @@ jobs:
     permissions:
       contents: write
     steps:
+      - uses: actions/checkout@v2
       - name: Create daily commit for 23f1002293@ds.study.iitm.ac.in
         run: |
-          git config user.name "GitHub Actions Commit"
-          git config user.email "23f1002293@ds.study.iitm.ac.in"
-          git add .
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
           git commit --allow-empty -m "Hello! Automated daily commit"
           git push
