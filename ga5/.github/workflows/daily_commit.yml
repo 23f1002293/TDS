@@ -2,7 +2,7 @@ name: Daily Commit
 on:
   workflow_dispatch:
   schedule:
-    - cron: '45 11 * * *'
+        - cron: '0 0 * * *' # Every day at midnight UTC
 jobs:
   daily-commit:
     runs-on: ubuntu-latest
