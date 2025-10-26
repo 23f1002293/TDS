@@ -6,11 +6,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  daily-commit:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: 23f1002293@ds.study.iitm.ac.in
-        run: echo "Hello, world from Janani's IITM Data Science workflow!"
+      - name: Create daily commit for 23f1002293@ds.study.iitm.ac.in
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git commit --allow-empty -m "Hello! Automated daily commit"
+          git push
