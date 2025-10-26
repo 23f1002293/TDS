@@ -1,0 +1,14 @@
+{
+  "name": "imdb-scraper",
+  "version": "1.0.0",
+  "description": "Scrapes IMDb for movie ratings.",
+  "main": "imdb_scraper.js",
+  "scripts": {
+    "start": "node imdb_scraper.js"
+  },
+  "dependencies": {
+    "puppeteer": "^24.26.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}
