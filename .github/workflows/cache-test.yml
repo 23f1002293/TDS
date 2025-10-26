@@ -7,41 +7,14 @@ on:
   schedule:
         - cron: '22 8 * * *' # Every day at midnight UTC
 jobs:
-  build:
+  daily-commit:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      # Restore cache first
-      - name: prime-cache-59561bd
-        id: cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: cache-59561bd
-          restore-keys: |
-            cache-
-
-      # Install some dependencies (creates pip cache content)
-      - name: Install dependencies
+      - name: Create daily commit for 23f1002293@ds.study.iitm.ac.in
         run: |
-          pip install fastapi numpy --upgrade
-
-      # Save cache manually if not hit
-      - name: Save cache on miss
-        if: steps.cache.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v4
-        with:
-          path: ~/.cache/pip
-          key: cache-59561bd
-
-      # Check whether the cache was hit or missed
-      - name: Check cache result
-        run: echo "Cache hit"
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git commit --allow-empty -m "Hello! Automated daily commit"
+          git push
