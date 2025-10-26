@@ -1,11 +1,9 @@
-name: Cache Speed Test 
-
+name: Daily Commit
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
   schedule:
         - cron: '22 8 * * *' # Every day at midnight UTC
+
 jobs:
   daily-commit:
     runs-on: ubuntu-latest
@@ -14,7 +12,8 @@ jobs:
     steps:
       - name: Create daily commit for 23f1002293@ds.study.iitm.ac.in
         run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions Commit"
+          git config user.email "23f1002293@ds.study.iitm.ac.in"
+          git add .
           git commit --allow-empty -m "Hello! Automated daily commit"
           git push
