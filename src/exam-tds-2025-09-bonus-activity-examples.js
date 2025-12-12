@@ -67,10 +67,10 @@ export async function questions(user, elementMap) {
     },
 
     // GA4: Geospatial Analysis - Server-Side Validation
-    {
-      ...(await import("./q-region-containing-point-server.js").then((m) => m.default({ user, weight: 2 }))),
-      help: md(geospatial),
-    },
+    // {
+    //   ...(await import("./q-region-containing-point-server.js").then((m) => m.default({ user, weight: 2 }))),
+    //   help: md(geospatial),
+    // },
   ];
 
   displayQuestions(results, elementMap);

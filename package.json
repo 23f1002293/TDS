@@ -3,13 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "npm run build-code && [ \"$SKIP_DATA\" ] || npm run build-data",
-    "build-code": "esbuild src/exam*.js src/download.js src/engagement.js src/results.js --external:./exam-*.js --loader:.md=text --bundle --minify --format=esm --outdir=public/",
-    "build-data": "node src/generate-info.js && ls src/data-*.py | xargs -n 1 uv run",
-    "refresh-submodules": "git submodule foreach --recursive 'git fetch origin && git checkout origin/main --quiet && git reset --hard origin/main'",
-    "deploy": "npm run lint && npm run build && wrangler deploy",
-    "lint": "dprint fmt && npx -y oxlint --fix src/*.js src/utils/*.js && npx -y tsc --project tsconfig.json --noEmit",
-    "test": "node src/generate-info.js && node --test test-node/*.test.js && vitest run",
+    "build": "npm run build-code",
+    "build-code": "esbuild src/exam*.js src/download.js --external:./exam-*.js --loader:.md=text --bundle --minify --format=esm --outdir=public/",
     "dev": "npm run build && wrangler dev",
     "start": "npm run build && wrangler dev"
   },

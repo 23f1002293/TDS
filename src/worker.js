@@ -95,6 +95,4 @@ const filterHeaders = (headers, safeHeaders) => {
 };
 
 // Map of server-side answer validation modules
-const answerModules = {
-  "q-region-containing-point-server": await import("./a-region-containing-point-server.js"),
-};
+const answerModules = {};
