@@ -1,0 +1,12 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "exam"
+main = "src/worker.js"
+compatibility_date = "2024-10-11"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+[build]
+command = "npm run build"
+watch_dir = ["src"]

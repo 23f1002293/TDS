@@ -1,0 +1,32 @@
+{
+  "name": "exam",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm run build-code && [ \"$SKIP_DATA\" ] || npm run build-data",
+    "build-code": "esbuild src/exam*.js src/download.js src/engagement.js src/results.js --external:./exam-*.js --loader:.md=text --bundle --minify --format=esm --outdir=public/",
+    "build-data": "node src/generate-info.js && ls src/data-*.py | xargs -n 1 uv run",
+    "refresh-submodules": "git submodule foreach --recursive 'git fetch origin && git checkout origin/main --quiet && git reset --hard origin/main'",
+    "deploy": "npm run lint && npm run build && wrangler deploy",
+    "lint": "dprint fmt && npx -y oxlint --fix src/*.js src/utils/*.js && npx -y tsc --project tsconfig.json --noEmit",
+    "test": "node src/generate-info.js && node --test test-node/*.test.js && vitest run",
+    "dev": "npm run build && wrangler dev",
+    "start": "npm run build && wrangler dev"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.10.4",
+    "@types/estree": "^1.0.8",
+    "@types/node": "^24.10.0",
+    "acorn": "^8.15.0",
+    "acorn-walk": "^8.3.4",
+    "dprint": "^0.50.2",
+    "esbuild": "^0.25.2",
+    "typescript": "^5.9.3",
+    "vitest": "~3.2.0",
+    "wrangler": "^4.45.4"
+  },
+  "dependencies": {
+    "seedrandom": "^3.0.5"
+  }
+}

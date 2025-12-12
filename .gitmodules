@@ -1,0 +1,4 @@
+[submodule "src/tds"]
+	path = src/tds
+	url = git@github.com:sanand0/tools-in-data-science-public.git
+	branch = main

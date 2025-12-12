@@ -1,0 +1,22 @@
+# Don't commit minified JS files
+public/*.js
+
+# Don't commit generated data files
+public/*.json
+
+# Don't commit generated source files
+src/*generated*.js
+
+# Don't commit downloaded files
+results.csv
+
+# Node modules & Python cache
+node_modules/
+__pycache__/
+
+# Wrangler
+.wrangler/
+tools-in-data-science-public
+
+# No Apple filesystemfiles
+.DS_Store
