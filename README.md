@@ -2,7 +2,7 @@
 
 ```bash
 git clone https://github.com/Jivraj-18/exam-repo-public-release.git
-cd exam
+cd exam-repo-public-release
 git submodule update --init --recursive
 npm install
 
@@ -107,3 +107,4 @@ export default {
   `,
 };
 ```
+
