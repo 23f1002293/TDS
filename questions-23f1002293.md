@@ -41,11 +41,12 @@
 ---
 # Multiple Choice Questions
 
-### Question 1: API Gateway Latency Analysis
+### Question 4: API Gateway Latency Analysis
 
 **Scenario:** You are given an API gateway access log where each line contains `timestamp`, `api_id`, `endpoint`, `response_time_ms`, and `http_status`. Your task is to find the average response time for a specific API (`api-123`) on a specific endpoint (`/users/{id}`), but only for successful `200` responses that took longer than 100ms.
 
 **Task:** Given the following log entries, what is the average response time in milliseconds?
+Submit your chosen answer (A, B, C, or D) to the endpoint `https://your-grading-system.com/submit/answer/1`.
 
 ```
 2025-12-18T10:00:00Z,api-123,/users/{id},150,200
@@ -63,11 +64,12 @@ D) 250 ms
 *(The correct answer is **B**. The average of the two valid entries (150 and 250) is 200.)*
 
 ---
-### Question 2: Failed Authentication Spike
+### Question 5: Failed Authentication Spike
 
 **Scenario:** A security log contains `timestamp` (ISO 8601 format) and `event_type` (`login_success` or `login_failure`). Your task is to identify the 10-minute interval with the highest number of failed logins.
 
 **Task:** Given the log below, which 10-minute window (`HH:M0:00` to `HH:M9:59`) contains the most `login_failure` events?
+Submit your chosen answer (A, B, C, or D) to the endpoint `https://your-grading-system.com/submit/answer/2`.
 
 ```
 2025-12-18T10:01:00Z,login_failure
@@ -87,11 +89,12 @@ D) 10:30 - 10:39
 *(The correct answer is **B**. The window 10:10-10:19 has three failures, while 10:00-10:09 has two and 10:20-10:29 has one.)*
 
 ---
-### Question 3: Correlating Errors with Deployments
+### Question 6: Correlating Errors with Deployments
 
 **Scenario:** You have two log files: `app-errors.log` (with `timestamp`, `error_code`) and `deployments.log` (with `timestamp`, `version_id`). Your task is to count how many critical errors occurred in the immediate aftermath of a specific deployment.
 
 **Task:** A deployment for `version-v2` is logged in `deployments.log` at exactly `2025-12-18T14:00:00Z`. How many `error_code=500` events from `app-errors.log` occurred within the 5-minute window immediately following this deployment (from `14:00:00` up to, but not including, `14:05:00`)?
+Submit your chosen answer (A, B, C, or D) to the endpoint `https://your-grading-system.com/submit/answer/3`.
 
 *app-errors.log:*
 ```
